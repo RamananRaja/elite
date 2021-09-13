@@ -7,11 +7,17 @@
     <form class="form" [formGroup]="loginForm" (ngSubmit)="verifyLogin()">
       <div class="side-by-side">
         <p>Email</p>
-        <input formControlName="emailId" type="email" placeholder="Email" />
+        <input
+          class="form-control"
+          formControlName="emailId"
+          type="email"
+          placeholder="Email"
+        />
       </div>
       <div class="side-by-side">
         <p>Password</p>
         <input
+          class="form-control"
           formControlName="password"
           type="password"
           placeholder="Password"
@@ -19,7 +25,7 @@
       </div>
       <!--buttons-->
       <button class="btn-success" style="border-radius: 10px">
-        <font size="5">Login -></font>
+        <font size="5">Login</font>
       </button>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <button class="btn-danger" type="reset" style="border-radius: 10px">
