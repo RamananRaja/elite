@@ -3,16 +3,23 @@
     <h1 class="title">Elite Foods</h1>
     <!--ngForm begins-->
     <form [formGroup]="loginForm" (ngSubmit)="verifyLogin()">
-      <div class="sub-container">
-        <div class="email-password-name">
-          <p>Email</p>
-          <p>Password</p>
-        </div>
-        <div class="email-password-input">
-          <input #emailInput type="email" placeholder="Email" />
-          <input #passwordInput type="password" placeholder="Password" />
-        </div>
+      <div class="side-by-side">
+        <p>Email</p>
+        <input #emailInput type="email" placeholder="Email" />
       </div>
+      <div class="side-by-side">
+        <p>Password</p>
+        <input #passwordInput type="password" placeholder="Password" />
+      </div>
+      <!--buttons-->
+      <button class="btn-success" style="border-radius: 10px">
+        <font size="5">Login</font>
+      </button>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="btn-danger" type="reset" style="border-radius: 10px">
+        <font size="5">Cancel</font>
+      </button>
+      <!---->
       <p>
         Forgot password
         <a class="has-text-primary" routerLink="/authenticate/reset-password"
