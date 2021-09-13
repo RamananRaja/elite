@@ -1,6 +1,5 @@
 /* css */
 .background {
-  background-color: aqua;
   height: 655px;
   width: 1365px;
   text-align: center;
@@ -12,11 +11,10 @@
   padding: 10px 5px 15px 20px;
 }
 .container {
-  background-color: blanchedalmond;
   height: 500px;
   width: 600px;
-  border-radius: 5%;
   align-items: center;
+  position: absolute;
 }
 .sub-container {
   display: flex;
@@ -27,6 +25,8 @@
 
 p {
   padding: 20px 0 10px 0px;
+  font-size: 30px;
+  font-weight: bold;
 }
 input {
   height: 35px;
@@ -37,4 +37,17 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+}
+.image {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+}
+.transparent {
+  background-color: #ffffff;
+  opacity: 0.6;
+  height: 500px;
+  width: 600px;
+  border-radius: 5%;
 }
