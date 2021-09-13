@@ -1,0 +1,25 @@
+/* css */
+.background {
+  background-color: aqua;
+  height: 800px;
+  width: 1365px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  padding: 10px 5px 15px 20px;
+}
+.container {
+  background-color: blanchedalmond;
+  height: 650px;
+  width: 600px;
+  border-radius: 5%;
+  align-items: center;
+}
+.side-by-side {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

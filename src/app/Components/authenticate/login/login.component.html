@@ -1,0 +1,31 @@
+<div class="background">
+  <div class="container">
+    <h1 class="title">Elite Foods</h1>
+    <!--ngForm begins-->
+    <form [formGroup]="loginForm" (ngSubmit)="verifyLogin()">
+      <div class="sub-container">
+        <div class="email-password-name">
+          <p>Email</p>
+          <p>Password</p>
+        </div>
+        <div class="email-password-input">
+          <input #emailInput type="email" placeholder="Email" />
+          <input #passwordInput type="password" placeholder="Password" />
+        </div>
+      </div>
+      <p>
+        Forgot password
+        <a class="has-text-primary" routerLink="/authenticate/reset-password"
+          >Click Here</a
+        >
+      </p>
+      <p>
+        Not yet Registerd?
+        <a class="has-text-primary" routerLink="/authenticate/sign-up"
+          >Click Here</a
+        >
+      </p>
+    </form>
+    <!--ngForm ends-->
+  </div>
+</div>
