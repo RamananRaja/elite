@@ -18,23 +18,23 @@ import { CustomValidator2 } from '../../../../custom-validator2';
 export class SignUpComponent implements OnInit {
   addForm: FormGroup;
   submitted: boolean = false;
-  user:User={
-    customerName:undefined,
-    emailId:undefined,
-    password:undefined,
-    security_question:undefined,
-    security_answer:undefined,
-    mobileNumber:undefined
+  user: User = {
+    customerName: undefined,
+    emailId: undefined,
+    password: undefined,
+    security_question: undefined,
+    security_answer: undefined,
+    mobileNumber: undefined
   }
-  address:Address1;
-  signup:SignUp={
-    user:undefined,
-    address:undefined
+  address: Address1;
+  signup: SignUp = {
+    user: undefined,
+    address: undefined
   }
   msg: String;
   errormsg: String;;
 
-  constructor(private formBuilder:FormBuilder,private router:Router,private userService:UserServiceService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserServiceService) { }
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
@@ -52,12 +52,12 @@ export class SignUpComponent implements OnInit {
         CustomValidator2.patternValidator(/[?=.*/'":;<>~|[\]{}\\!@#$%^&()]/, { hasSpecialCharacters: true }),
         CustomValidator2.patternValidator(/[A-Za-z]/, { hasLetters: true })
       ])],
-      question:['',Validators.required],
-      answer:['',Validators.required],
-      city:[''],
-      landmark:[''],
-      line1:[''],
-      line2:[''],
+      question: ['', Validators.required],
+      answer: ['', Validators.required],
+      city: [''],
+      landmark: [''],
+      line1: [''],
+      line2: [''],
       emailid: ['', [Validators.required, Validators.email]],
       name: ['', Validators.compose([
         Validators.required,
@@ -68,54 +68,57 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-/*
-This method is called when the user submits the form and the request is sent and response received
-from the server
-*/
-  verify(){
+  /*
+  This method is called when the user submits the form and the request is sent and response received
+  from the server
+  */
+  verify() {
     this.submitted = true;
-    if(this.addForm.invalid){
+    console.log(this.addForm);
+    if (this.addForm.invalid) {
+      console.log("add form invalid");
       return;
     }
     else {
-          this.user.customerName=this.addForm.controls.name.value;
-          this.user.emailId=this.addForm.controls.emailid.value;
-          this.user.mobileNumber=this.addForm.controls.phonenumber.value;
-          this.user.password=this.addForm.controls.password.value;
-          this.user.security_answer=this.addForm.controls.answer.value;
-          this.user.security_question=this.addForm.controls.question.value;
+      console.log("add form valid");
+      console.log(this.addForm.controls.name.value);
+      this.user.customerName = this.addForm.controls.name.value;
+      this.user.emailId = this.addForm.controls.emailid.value;
+      this.user.mobileNumber = this.addForm.controls.phonenumber.value;
+      this.user.password = this.addForm.controls.password.value;
+      this.user.security_answer = this.addForm.controls.answer.value;
+      this.user.security_question = this.addForm.controls.question.value;
 
-          if(this.addForm.controls.city.value&&this.addForm.controls.landmark.value&&this.addForm.controls.line1.value&&this.addForm.controls.phonenumber.value)
-          {
-            this.address={
-              line1:undefined,
-              line2:undefined,
-              landmark:undefined,
-               city:undefined,
-                mobileNumber:undefined
-             }
-          this.address.city=this.addForm.controls.city.value;
-          this.address.landmark=this.addForm.controls.landmark.value;
-          this.address.line1=this.addForm.controls.line1.value;
-          this.address.line2=this.addForm.controls.line2.value;
-          this.address.mobileNumber=this.addForm.controls.phonenumber.value;
-          this.signup.address=this.address;
-          }
-
-          this.signup.user=this.user;
-          this.signup.address=this.address;
-          this.userService.signUp(this.signup).subscribe(data => {
-            this.msg=data;
-            alert(this.msg);
-            this.router.navigate(['/authenticate']);
-          },
-            err => {
-              this.errormsg=err.error;
-              alert(this.errormsg);
-            });
+      if (this.addForm.controls.city.value && this.addForm.controls.landmark.value && this.addForm.controls.line1.value && this.addForm.controls.phonenumber.value) {
+        this.address = {
+          line1: undefined,
+          line2: undefined,
+          landmark: undefined,
+          city: undefined,
+          mobileNumber: undefined
+        }
+        this.address.city = this.addForm.controls.city.value;
+        this.address.landmark = this.addForm.controls.landmark.value;
+        this.address.line1 = this.addForm.controls.line1.value;
+        this.address.line2 = this.addForm.controls.line2.value;
+        this.address.mobileNumber = this.addForm.controls.phonenumber.value;
+        this.signup.address = this.address;
       }
-       
 
+      this.signup.user = this.user;
+      this.signup.address = this.address;
+      this.userService.signUp(this.signup).subscribe(data => {
+        this.msg = data;
+        alert(this.msg);
+        this.router.navigate(['/authenticate']);
+      },
+        err => {
+          this.errormsg = err.error;
+          alert(this.errormsg);
+        });
     }
+
+
   }
-  
+}
+

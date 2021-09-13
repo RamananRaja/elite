@@ -9,12 +9,7 @@
         <div class="side-by-side">
           <p>Name</p>
           <div class="col-sm-7">
-            <input
-              type="text"
-              class="form-control"
-              formControlName="name"
-              placeholder="Full Name"
-            />
+            <input type="text" placeholder="Full Name" />
             <div *ngIf="submitted && addForm.controls.name.errors">
               <div
                 class="text-danger"

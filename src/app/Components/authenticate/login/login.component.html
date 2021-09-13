@@ -5,11 +5,15 @@
     <form [formGroup]="loginForm" (ngSubmit)="verifyLogin()">
       <div class="side-by-side">
         <p>Email</p>
-        <input #emailInput type="email" placeholder="Email" />
+        <input formControlName="emailId" type="email" placeholder="Email" />
       </div>
       <div class="side-by-side">
         <p>Password</p>
-        <input #passwordInput type="password" placeholder="Password" />
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="Password"
+        />
       </div>
       <!--buttons-->
       <button class="btn-success" style="border-radius: 10px">
